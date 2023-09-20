@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 import 'feature/crypto_list/view/crypto_list_screen.dart';
 import 'router/router.dart';
@@ -14,6 +16,7 @@ class MyApp extends StatelessWidget {
       theme: darkTheme,
       routes: routes,
       home: const CryptoListScreen(),
+      navigatorObservers: [TalkerRouteObserver(GetIt.I<Talker>())],
     );
   }
 }
