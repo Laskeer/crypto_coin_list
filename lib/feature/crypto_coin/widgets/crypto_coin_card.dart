@@ -9,7 +9,7 @@ class CryptoCoinCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         margin: const EdgeInsets.only(top: 20),
-        color: const Color.fromARGB(255, 20, 20, 20),
+        color: const Color.fromARGB(255, 45, 45, 45),
         child: SizedBox(
             width: 350,
             child: Container(

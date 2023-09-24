@@ -6,17 +6,23 @@ import 'feature/crypto_list/view/crypto_list_screen.dart';
 import 'router/router.dart';
 import 'theme/theme.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final _appRouter = AppRouter();
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: darkTheme,
-      routes: routes,
-      home: const CryptoListScreen(),
-      navigatorObservers: [TalkerRouteObserver(GetIt.I<Talker>())],
+      routerConfig: _appRouter.config(
+        navigatorObservers: () => [TalkerRouteObserver(GetIt.I<Talker>())],
+      ),
     );
   }
 }
